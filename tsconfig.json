@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "target": "es6",
+    "jsx": "react",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "charset": "utf8",
+    "emitBOM": true,
+    "newLine": "CRLF",
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "declaration": false,
+    "removeComments": false,
+    "resolveJsonModule": true,
+    "lib": ["es6", "es7", "dom", "esnext"],
+    "typeRoots": ["src/types", "./node_modules/@types"]
+  },
+  "exclude": ["dist", "node_modules"]
+}
