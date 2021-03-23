@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { switchTest } from '../../store/state/app/actions';
-import { LocalizationDataKey } from '../../store/state/localization/types/LocalizationData';
+import { LocalizationDataKey } from '../../store/static/localization/types/LocalizationDataKey';
 import { Button } from '../Button';
 import { LocalizedText } from '../LocalizedText';
 import styles from './styles.scss';

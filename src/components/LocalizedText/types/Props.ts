@@ -1,4 +1,4 @@
-import { LocalizationDataKey } from '../../../store/state/localization/types/LocalizationData';
+import { LocalizationDataKey } from '../../../store/static/localization/types/LocalizationDataKey';
 
 export type Props = {
   dataKey: LocalizationDataKey;

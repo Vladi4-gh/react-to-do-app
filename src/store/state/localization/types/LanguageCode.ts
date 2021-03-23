@@ -1,3 +1,4 @@
 export enum LanguageCode {
-  default = 'default'
+  en = 'en',
+  ru = 'ru'
 }
