@@ -1,0 +1,10 @@
+@import '../../styles/main';
+
+.button-switcher {
+  align-items: center;
+  display: flex;
+
+  .button {
+    color: $color-space-black;
+  }
+}

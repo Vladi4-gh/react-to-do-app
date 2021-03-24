@@ -1,7 +1,9 @@
+import { LanguageCode } from '../../../static/localization/types/LanguageCode';
 import { AppActionType } from './ActionType';
 
-interface SwitchTestAction {
-  type: AppActionType.SWITCH_TEST;
+interface SetLocalizationLanguageAction {
+  type: AppActionType.SET_LOCALIZATION_LANGUAGE;
+  payload: LanguageCode;
 }
 
-export type AppAction = SwitchTestAction;
+export type AppAction = SetLocalizationLanguageAction;

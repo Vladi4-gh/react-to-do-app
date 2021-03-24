@@ -1,4 +1,4 @@
-import { LanguageCode } from '../state/localization/types/LanguageCode';
+import { LanguageCode } from '../static/localization/types/LanguageCode';
 import { defaultLocalization, localization } from '../static/localization/localization';
 import { LocalizationDataKey } from '../static/localization/types/LocalizationDataKey';
 import { State } from '../types/State';
@@ -11,5 +11,5 @@ const getLocalizedText = (language: LanguageCode, dataKey: LocalizationDataKey):
 };
 
 export const useGetters = (state: State): Getters => ({
-  getLocalizedText: (dataKey: LocalizationDataKey) => getLocalizedText(state.localization.language, dataKey)
+  getLocalizedText: (dataKey: LocalizationDataKey) => getLocalizedText(state.app.localizationLanguage, dataKey)
 });

@@ -1,13 +1,13 @@
+import thunk from 'redux-thunk';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { appReducer } from './state/app/reducer';
-import { localizationReducer } from './state/localization/reducer';
 import { State } from './types/State';
-import thunk from 'redux-thunk';
+import { taskReducer } from './state/task/reducer';
 
 const reducer = combineReducers<State>({
   app: appReducer,
-  localization: localizationReducer
+  task: taskReducer
 });
 const enhancers = [applyMiddleware(thunk)];
 

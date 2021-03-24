@@ -5,7 +5,7 @@ import styles from './styles.scss';
 
 export const Button: React.FC<Props> = (props) => {
   return (
-    <button className={classNames(styles['button'], props.className)} onClick={props.onClick}>
+    <button className={classNames(styles['button'], { [styles['button_selected']]: props.selected }, props.className)} onClick={props.onClick}>
       {props.children}
     </button>
   );

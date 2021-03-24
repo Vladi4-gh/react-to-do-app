@@ -1,3 +1,5 @@
+import { LanguageCode } from '../../../static/localization/types/LanguageCode';
+
 export interface AppState {
-  test: boolean;
+  localizationLanguage: LanguageCode;
 }

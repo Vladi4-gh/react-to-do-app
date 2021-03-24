@@ -5,10 +5,10 @@ import { defaultAppState } from './defaultState';
 
 export const appReducer = (state = defaultAppState, action: AppAction): AppState => {
   switch (action.type) {
-    case AppActionType.SWITCH_TEST:
+    case AppActionType.SET_LOCALIZATION_LANGUAGE:
       return {
         ...state,
-        test: !state.test
+        localizationLanguage: action.payload
       };
     default:
       return state;

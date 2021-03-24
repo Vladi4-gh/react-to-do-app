@@ -1,7 +1,7 @@
 import { AppState } from '../state/app/types/State';
-import { LocalizationState } from '../state/localization/types/State';
+import { TaskState } from '../state/task/types/State';
 
 export interface State {
   app: AppState;
-  localization: LocalizationState;
+  task: TaskState;
 }

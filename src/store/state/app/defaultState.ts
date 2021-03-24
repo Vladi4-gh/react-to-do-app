@@ -1,5 +1,6 @@
+import { LanguageCode } from '../../static/localization/types/LanguageCode';
 import { AppState } from './types/State';
 
 export const defaultAppState: AppState = {
-  test: false
+  localizationLanguage: LanguageCode.en
 };
