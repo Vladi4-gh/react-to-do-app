@@ -6,8 +6,8 @@ import { setLocalizationLanguage } from '../../store/state/app/actions';
 import { LanguageCode } from '../../store/static/localization/types/LanguageCode';
 import { Button } from '../Button';
 import { ButtonSwitcher } from '../ButtonSwitcher';
-import styles from './styles.scss';
 import { languageNames } from '../../store/static/localization/localization';
+import styles from './styles.scss';
 
 export const LocalizationLanguageSwitcher: React.FC = () => {
   const appState = useTypedSelector((state) => state.app);
