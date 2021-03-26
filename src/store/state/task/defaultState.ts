@@ -1,5 +1,7 @@
 import { TaskState } from './types/State';
+import { TasksFilter } from './types/TasksFilter';
 
 export const defaultTaskState: TaskState = {
-  test: false
+  tasks: [],
+  filter: TasksFilter.all
 };

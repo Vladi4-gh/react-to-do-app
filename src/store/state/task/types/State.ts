@@ -1,3 +1,7 @@
+import { Task } from './Task';
+import { TasksFilter } from './TasksFilter';
+
 export interface TaskState {
-  test: boolean;
+  tasks: Task[];
+  filter: TasksFilter;
 }
