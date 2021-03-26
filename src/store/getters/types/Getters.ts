@@ -1,5 +1,7 @@
+import { Task } from '../../state/task/types/Task';
 import { LocalizationDataKey } from '../../static/localization/types/LocalizationDataKey';
 
 export interface Getters {
-  getLocalizedText: (dataKey: LocalizationDataKey) => string;
+  readonly filteredTasks: Task[];
+  readonly getLocalizedText: (dataKey: LocalizationDataKey) => string;
 }

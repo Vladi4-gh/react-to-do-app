@@ -5,8 +5,8 @@ import { useGetters } from '../../store/getters/getters';
 
 export const LocalizedText: React.FC<Props> = (props) => {
   const state = useTypedSelector((state) => state);
-  const getters = useGetters(state);
-  const localizedText = getters.getLocalizedText(props.dataKey);
+  const { getLocalizedText } = useGetters(state);
+  const localizedText = getLocalizedText(props.dataKey);
 
   return <>{localizedText}</>;
 };
