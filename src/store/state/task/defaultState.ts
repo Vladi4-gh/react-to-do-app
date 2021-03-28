@@ -1,7 +1,12 @@
 import { TaskState } from './types/State';
-import { TasksFilter } from './types/TasksFilter';
+import { TaskFilter } from './types/TaskFilter';
 
 export const defaultTaskState: TaskState = {
-  tasks: [],
-  filter: TasksFilter.all
+  tasks: [
+    { id: '1', title: 'test', description: 'desc', completed: false },
+    { id: '2', title: 'test', description: 'desc', completed: true },
+    { id: '3', title: 'test', description: 'desc', completed: false },
+    { id: '4', title: 'test', description: 'desc', completed: false }
+  ],
+  filter: TaskFilter.all
 };

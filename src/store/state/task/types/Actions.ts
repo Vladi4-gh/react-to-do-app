@@ -1,6 +1,6 @@
 import { TaskActionType } from './ActionType';
 import { Task } from './Task';
-import { TasksFilter } from './TasksFilter';
+import { TaskFilter } from './TaskFilter';
 
 interface AddTaskAction {
   type: TaskActionType.ADD_TASK;
@@ -32,7 +32,7 @@ interface RemoveAllCompletedTasksAction {
 
 interface SetTasksFilterAction {
   type: TaskActionType.SET_TASKS_FILTER;
-  payload: TasksFilter;
+  payload: TaskFilter;
 }
 
 export type TaskAction =

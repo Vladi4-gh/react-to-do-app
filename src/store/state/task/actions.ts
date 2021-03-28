@@ -1,7 +1,7 @@
 import { TaskActionType } from './types/ActionType';
 import { TaskAction } from './types/Actions';
 import { Task } from './types/Task';
-import { TasksFilter } from './types/TasksFilter';
+import { TaskFilter } from './types/TaskFilter';
 
 export const addTask = (task: Task): TaskAction => ({
   type: TaskActionType.ADD_TASK,
@@ -31,7 +31,7 @@ export const removeAllCompletedTasks = (): TaskAction => ({
   type: TaskActionType.REMOVE_ALL_COMPLETED_TASKS
 });
 
-export const setTasksFilter = (filter: TasksFilter): TaskAction => ({
+export const setTasksFilter = (filter: TaskFilter): TaskAction => ({
   type: TaskActionType.SET_TASKS_FILTER,
   payload: filter
 });

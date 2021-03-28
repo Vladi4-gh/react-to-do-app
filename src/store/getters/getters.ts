@@ -4,20 +4,19 @@ import { LocalizationDataKey } from '../static/localization/types/LocalizationDa
 import { State } from '../types/State';
 import { Getters } from './types/Getters';
 import { Task } from '../state/task/types/Task';
-import { TasksFilter } from '../state/task/types/TasksFilter';
+import { TaskFilter } from '../state/task/types/TaskFilter';
 
-const getFilteredTasks = (state: State): Task[] => {
-  return state.task.tasks.filter((task) => {
+const getFilteredTasks = (state: State): Task[] =>
+  state.task.tasks.filter((task) => {
     switch (state.task.filter) {
-      case TasksFilter.all:
+      case TaskFilter.all:
         return true;
-      case TasksFilter.active:
+      case TaskFilter.active:
         return !task.completed;
-      case TasksFilter.completed:
+      case TaskFilter.completed:
         return task.completed;
     }
   });
-};
 
 const getLocalizedText = (language: LanguageCode, dataKey: LocalizationDataKey): string => {
   const localizationForLanguage = localization[language];

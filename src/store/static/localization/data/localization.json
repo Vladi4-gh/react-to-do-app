@@ -1,6 +1,11 @@
 {
   "en": {},
   "ru": {
-    "TEST": "Тест"
+    "APP_TITLE_TEXT": "Задачи",
+    "TASK_LIST_ADD_TASK_BUTTON_TEXT": "Новая задача",
+    "TASK_LIST_ADD_TASK_BUTTON_TITLE": "Добавить новую задачу",
+    "TASK_LIST_EDIT_TASK_BUTTON_TITLE": "Редактировать",
+    "TASK_LIST_REMOVE_TASK_BUTTON_TITLE": "Удалить",
+    "TASK_LIST_NO_TASKS_MESSAGE": "Пока нет задач"
   }
 }

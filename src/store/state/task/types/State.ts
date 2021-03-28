@@ -1,7 +1,7 @@
 import { Task } from './Task';
-import { TasksFilter } from './TasksFilter';
+import { TaskFilter } from './TaskFilter';
 
 export interface TaskState {
   tasks: Task[];
-  filter: TasksFilter;
+  filter: TaskFilter;
 }

@@ -1,0 +1,107 @@
+@import '../../styles/main';
+
+.task-list {
+  .container {
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+
+    .add-task-button,
+    .remove-all-tasks-button {
+      border: 2px solid $color-space-black;
+      border-radius: 6px;
+      padding: 0.5rem;
+
+      .text {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  &__items {
+    .task-list-item {
+      display: flex;
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .content {
+        display: flex;
+        flex-flow: column;
+        flex: 1;
+
+        &__title {
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+        }
+
+        &__description {
+          font-style: italic;
+        }
+      }
+
+      .change-task-completion-button,
+      .edit-task-button,
+      .remove-task-button {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin: 1rem;
+        width: 3rem;
+      }
+
+      .change-task-completion-button {
+        margin-left: 0;
+      }
+
+      .edit-task-button,
+      .remove-task-button {
+        margin-right: 0;
+      }
+    }
+
+    .empty-list-message {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      height: 5rem;
+    }
+  }
+
+  &__footer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    .total-counter {
+      &__text {
+        &::after {
+          content: ':';
+        }
+      }
+
+      &__count {
+        margin-left: 0.5rem;
+      }
+    }
+
+    .remove-all-completed-tasks-button {
+      border: 2px solid $color-space-black;
+      border-radius: 6px;
+      padding: 0.5rem;
+
+      .text {
+        margin-left: 1rem;
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@ import { LanguageCode } from '../../store/static/localization/types/LanguageCode
 import { Button } from '../Button';
 import { ButtonSwitcher } from '../ButtonSwitcher';
 import { languageNames } from '../../store/static/localization/localization';
-import styles from './styles.scss';
+import './styles.scss';
 
 export const LocalizationLanguageSwitcher: React.FC = () => {
   const appState = useTypedSelector((state) => state.app);
@@ -15,11 +15,10 @@ export const LocalizationLanguageSwitcher: React.FC = () => {
   const localizationLanguages = Object.values(LanguageCode);
 
   return (
-    <ButtonSwitcher className={styles['localization-language-switcher']}>
+    <ButtonSwitcher className={'localization-language-switcher'}>
       {localizationLanguages.map((localizationLanguage) => (
         <Button
           key={v4()}
-          className={styles['button']}
           selected={appState.localizationLanguage === localizationLanguage}
           onClick={() => dispatch(setLocalizationLanguage(localizationLanguage))}
         >

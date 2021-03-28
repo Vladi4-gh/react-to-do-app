@@ -1,3 +1,8 @@
 {
-  "TEST": "Test"
+  "APP_TITLE_TEXT": "Tasks",
+  "TASK_LIST_ADD_TASK_BUTTON_TEXT": "Add task",
+  "TASK_LIST_ADD_TASK_BUTTON_TITLE": "Add new task",
+  "TASK_LIST_EDIT_TASK_BUTTON_TITLE": "Edit",
+  "TASK_LIST_REMOVE_TASK_BUTTON_TITLE": "Remove",
+  "TASK_LIST_NO_TASKS_MESSAGE": "There are no tasks yet"
 }
