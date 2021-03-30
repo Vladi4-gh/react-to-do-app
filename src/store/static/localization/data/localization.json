@@ -4,8 +4,21 @@
     "APP_TITLE_TEXT": "Задачи",
     "TASK_LIST_ADD_TASK_BUTTON_TEXT": "Новая задача",
     "TASK_LIST_ADD_TASK_BUTTON_TITLE": "Добавить новую задачу",
-    "TASK_LIST_EDIT_TASK_BUTTON_TITLE": "Редактировать",
-    "TASK_LIST_REMOVE_TASK_BUTTON_TITLE": "Удалить",
-    "TASK_LIST_NO_TASKS_MESSAGE": "Пока нет задач"
+    "TASK_LIST_EDIT_TASK_BUTTON_TITLE": "Редактировать задачу",
+    "TASK_LIST_REMOVE_TASK_BUTTON_TITLE": "Удалить задачу",
+    "TASK_LIST_CHANGE_TASK_COMPLETION_BUTTON_COMPLETED_STATE_TITLE": "Пометить задачу как незавершённую",
+    "TASK_LIST_CHANGE_TASK_COMPLETION_BUTTON_UNCOMPLETED_STATE_TITLE": "Пометить задачу как завершённую",
+    "TASK_LIST_REMOVE_ALL_TASKS_BUTTON_TEXT": "Удалить все",
+    "TASK_LIST_REMOVE_ALL_TASKS_BUTTON_TITLE": "Удалить все задачи",
+    "TASK_LIST_REMOVE_ALL_COMPLETED_TASKS_BUTTON_TEXT": "Удалить завершённые",
+    "TASK_LIST_REMOVE_ALL_COMPLETED_TASKS_BUTTON_TITLE": "Удалить все завершённые задачи",
+    "TASK_LIST_REMOVE_TASK_CONFIRMATION_POPUP_TEXT": "Удалить задачу?",
+    "TASK_LIST_REMOVE_ALL_TASKS_CONFIRMATION_POPUP_TEXT": "Удалить все задачи?",
+    "TASK_LIST_REMOVE_ALL_COMPLETED_TASKS_CONFIRMATION_POPUP_TEXT": "Удалить все завершённые задачи?",
+    "TASK_LIST_TOTAL_COUNTER": "Всего",
+    "TASK_LIST_NO_TASKS": "Пока нет задач",
+    "TASK_FILTER_SWITCHER_ALL": "Все",
+    "TASK_FILTER_SWITCHER_ACTIVE": "Активные",
+    "TASK_FILTER_SWITCHER_COMPLETED": "Завершённые"
   }
 }

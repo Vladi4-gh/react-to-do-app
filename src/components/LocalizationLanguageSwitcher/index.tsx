@@ -17,16 +17,16 @@ export const LocalizationLanguageSwitcher: React.FC = () => {
   return (
     <ButtonSwitcher className={styles['localization-language-switcher']}>
       {localizationLanguages.map((localizationLanguage, index) => {
-        const localizationName = languageNames[localizationLanguage];
+        const languageName = languageNames[localizationLanguage];
 
         return (
           <Button
             key={index}
             className={classnames(styles['button'], { [styles['button_selected']]: appState.localizationLanguage === localizationLanguage })}
-            title={localizationName}
+            title={languageName}
             onClick={() => dispatch(setLocalizationLanguage(localizationLanguage))}
           >
-            {localizationName}
+            {languageName}
           </Button>
         );
       })}

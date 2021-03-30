@@ -20,11 +20,11 @@ export const TaskFilterSwitcher: React.FC = () => {
   const getLocalizationDataKey = (taskFilter: TaskFilter): LocalizationDataKey => {
     switch (taskFilter) {
       case TaskFilter.all:
-        return LocalizationDataKey.APP_TITLE_TEXT;
+        return LocalizationDataKey.TASK_FILTER_SWITCHER_ALL;
       case TaskFilter.active:
-        return LocalizationDataKey.APP_TITLE_TEXT;
+        return LocalizationDataKey.TASK_FILTER_SWITCHER_ACTIVE;
       case TaskFilter.completed:
-        return LocalizationDataKey.APP_TITLE_TEXT;
+        return LocalizationDataKey.TASK_FILTER_SWITCHER_COMPLETED;
     }
   };
 
