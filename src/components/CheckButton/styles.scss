@@ -1,0 +1,12 @@
+@import '../../styles/main';
+
+.check-button {
+  align-items: center;
+  color: $color-light-gray;
+  display: flex;
+  justify-content: center;
+
+  &_checked {
+    color: $color-hierophant-green;
+  }
+}

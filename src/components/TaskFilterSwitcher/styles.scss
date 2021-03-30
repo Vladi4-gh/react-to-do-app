@@ -1,1 +1,19 @@
 @import '../../styles/main';
+
+.task-filter-switcher {
+  .button {
+    border: 2px solid transparent;
+    border-radius: 6px;
+    font-size: 1.6rem;
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &_selected {
+      border-color: $color-space-black;
+    }
+  }
+}

@@ -1,13 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
-import { v4 } from 'uuid';
 import { setLocalizationLanguage } from '../../store/state/app/actions';
 import { LanguageCode } from '../../store/static/localization/types/LanguageCode';
 import { Button } from '../Button';
 import { ButtonSwitcher } from '../ButtonSwitcher';
 import { languageNames } from '../../store/static/localization/localization';
-import './styles.scss';
+import classnames from 'classnames';
+import styles from './styles.scss';
 
 export const LocalizationLanguageSwitcher: React.FC = () => {
   const appState = useTypedSelector((state) => state.app);
@@ -15,16 +15,21 @@ export const LocalizationLanguageSwitcher: React.FC = () => {
   const localizationLanguages = Object.values(LanguageCode);
 
   return (
-    <ButtonSwitcher className={'localization-language-switcher'}>
-      {localizationLanguages.map((localizationLanguage) => (
-        <Button
-          key={v4()}
-          selected={appState.localizationLanguage === localizationLanguage}
-          onClick={() => dispatch(setLocalizationLanguage(localizationLanguage))}
-        >
-          {languageNames[localizationLanguage]}
-        </Button>
-      ))}
+    <ButtonSwitcher className={styles['localization-language-switcher']}>
+      {localizationLanguages.map((localizationLanguage, index) => {
+        const localizationName = languageNames[localizationLanguage];
+
+        return (
+          <Button
+            key={index}
+            className={classnames(styles['button'], { [styles['button_selected']]: appState.localizationLanguage === localizationLanguage })}
+            title={localizationName}
+            onClick={() => dispatch(setLocalizationLanguage(localizationLanguage))}
+          >
+            {localizationName}
+          </Button>
+        );
+      })}
     </ButtonSwitcher>
   );
 };

@@ -8,9 +8,9 @@ import { LocalizationDataKey } from '../../store/static/localization/types/Local
 import { Button } from '../Button';
 import { addTask, editTask, removeAllCompletedTasks, removeAllTasks, removeTask, setTaskCompletion } from '../../store/state/task/actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle, faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import { faCalendarCheck, faEdit, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import classnames from 'classnames';
+import { CheckButton } from '../CheckButton';
 import styles from './styles.scss';
 
 export const TaskList: React.FC = () => {
@@ -19,16 +19,14 @@ export const TaskList: React.FC = () => {
   const dispatch = useDispatch();
 
   const renderFilteredTasks = () => {
-    return filteredTasks.map((filteredTask) => (
-      <div key={v4()} className={styles['task-list-item']}>
-        <Button
+    return filteredTasks.map((filteredTask, index) => (
+      <div key={index} className={classnames(styles['task-list-item'], { [styles['task-list-item_completed']]: filteredTask.completed })}>
+        <CheckButton
           className={styles['change-task-completion-button']}
           title={getLocalizedText(LocalizationDataKey.TASK_LIST_EDIT_TASK_BUTTON_TITLE)}
+          checked={filteredTask.completed}
           onClick={() => dispatch(setTaskCompletion(filteredTask.id, !filteredTask.completed))}
-        >
-          <FontAwesomeIcon icon={faCircle} />
-          <FontAwesomeIcon icon={faCheckCircle} />
-        </Button>
+        />
         <div className={styles['content']}>
           <div className={styles['content__title']}>{filteredTask.title}</div>
           <div className={styles['content__description']}>{filteredTask.description}</div>
@@ -52,7 +50,7 @@ export const TaskList: React.FC = () => {
         <Button
           className={styles['remove-task-button']}
           title={getLocalizedText(LocalizationDataKey.TASK_LIST_REMOVE_TASK_BUTTON_TITLE)}
-          onClick={() => dispatch(removeTask(filteredTask.id))}
+          onClick={() => (confirm(getLocalizedText(LocalizationDataKey.TASK_LIST_EDIT_TASK_BUTTON_TITLE)) ? dispatch(removeTask(filteredTask.id)) : null)}
         >
           <FontAwesomeIcon icon={faTrash} />
         </Button>
@@ -85,7 +83,7 @@ export const TaskList: React.FC = () => {
         <Button
           className={styles['remove-all-tasks-button']}
           title={getLocalizedText(LocalizationDataKey.TASK_LIST_ADD_TASK_BUTTON_TITLE)}
-          onClick={() => dispatch(removeAllTasks())}
+          onClick={() => (confirm(getLocalizedText(LocalizationDataKey.TASK_LIST_EDIT_TASK_BUTTON_TITLE)) ? dispatch(removeAllTasks()) : null)}
         >
           <FontAwesomeIcon icon={faTrash} />
           <span className={styles['text']}>
@@ -112,7 +110,7 @@ export const TaskList: React.FC = () => {
         <Button
           className={styles['remove-all-completed-tasks-button']}
           title={getLocalizedText(LocalizationDataKey.TASK_LIST_ADD_TASK_BUTTON_TITLE)}
-          onClick={() => dispatch(removeAllCompletedTasks())}
+          onClick={() => (confirm(getLocalizedText(LocalizationDataKey.TASK_LIST_EDIT_TASK_BUTTON_TITLE)) ? dispatch(removeAllCompletedTasks()) : null)}
         >
           <FontAwesomeIcon icon={faCalendarCheck} />
           <span className={styles['text']}>

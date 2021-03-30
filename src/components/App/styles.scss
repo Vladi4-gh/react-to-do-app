@@ -1,6 +1,7 @@
 @import '../../styles/main';
 
 .app {
+  color: $color-space-black;
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -18,7 +19,7 @@
     .switchers {
       display: flex;
       justify-content: space-between;
-      margin-top: 1rem;
+      margin-top: 2rem;
     }
   }
 }
