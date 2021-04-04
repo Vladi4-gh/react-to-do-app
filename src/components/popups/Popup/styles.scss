@@ -1,0 +1,11 @@
+@import '../../../styles/main';
+
+.popup-content {
+  background: $color-peaceful-white;
+  border: 2px solid $color-light-gray;
+  border-radius: 6px;
+
+  &__header {
+    background: $color-light-gray;
+  }
+}

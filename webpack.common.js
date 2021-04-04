@@ -15,7 +15,7 @@ module.exports = (env, argv, isProduction) => ({
       inject: false,
       template: './src/index.html',
       hash: isProduction,
-      title: 'TO DO app',
+      title: 'React To Do App',
       favicon: path.resolve(__dirname, './src/images/favicon.ico'),
       mode: !isProduction ? 'development' : 'production'
     }),

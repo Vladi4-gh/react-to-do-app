@@ -1,13 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
-import { TaskFilter } from '../../store/state/task/types/TaskFilter';
-import { Button } from '../Button';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { TaskFilter } from '../../../store/state/task/types/TaskFilter';
+import { Button } from '../../buttons/Button';
 import { ButtonSwitcher } from '../ButtonSwitcher';
-import { setTasksFilter } from '../../store/state/task/actions';
-import { LocalizationDataKey } from '../../store/static/localization/types/LocalizationDataKey';
-import { LocalizedText } from '../LocalizedText';
-import { useGetters } from '../../store/getters/getters';
+import { setTasksFilter } from '../../../store/state/task/actions';
+import { LocalizationDataKey } from '../../../store/static/localization/types/LocalizationDataKey';
+import { LocalizedText } from '../../LocalizedText';
+import { useGetters } from '../../../store/getters/getters';
 import classnames from 'classnames';
 import styles from './styles.scss';
 

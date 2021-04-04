@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import classnames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useGetters } from '../../store/getters/getters';
 import { v4 } from 'uuid';
 import { LocalizedText } from '../LocalizedText';
 import { LocalizationDataKey } from '../../store/static/localization/types/LocalizationDataKey';
-import { Button } from '../Button';
+import { Button } from '../buttons/Button';
+import { Task } from '../../store/state/task/types/Task';
 import { addTask, editTask, removeAllCompletedTasks, removeAllTasks, removeTask, setTaskCompletion } from '../../store/state/task/actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarCheck, faEdit, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { CheckButton } from '../CheckButton';
-import classnames from 'classnames';
+import { CheckButton } from '../buttons/CheckButton';
+import { RemoveTaskConfirmationPopup } from '../popups/RemoveTaskConfirmationPopup';
 import styles from './styles.scss';
 
 export const TaskList: React.FC = () => {
+  const [currentTask, setCurrentTask] = useState<Task | null>(null);
+  const [removeTaskConfirmationPopupOpened, setRemoveTaskConfirmationPopupOpened] = useState(false);
   const state = useTypedSelector((state) => state);
   const { filteredTasks, getLocalizedText } = useGetters(state);
   const dispatch = useDispatch();
@@ -54,9 +58,10 @@ export const TaskList: React.FC = () => {
         <Button
           className={styles['remove-task-button']}
           title={getLocalizedText(LocalizationDataKey.TASK_LIST_REMOVE_TASK_BUTTON_TITLE)}
-          onClick={() =>
-            confirm(getLocalizedText(LocalizationDataKey.TASK_LIST_REMOVE_TASK_CONFIRMATION_POPUP_TEXT)) ? dispatch(removeTask(filteredTask.id)) : null
-          }
+          onClick={() => {
+            setCurrentTask(filteredTask);
+            setRemoveTaskConfirmationPopupOpened(true);
+          }}
         >
           <FontAwesomeIcon icon={faTrash} />
         </Button>
@@ -130,6 +135,21 @@ export const TaskList: React.FC = () => {
           </span>
         </Button>
       </div>
+      {currentTask && (
+        <RemoveTaskConfirmationPopup
+          opened={removeTaskConfirmationPopupOpened}
+          task={currentTask}
+          onConfirm={(id) => {
+            dispatch(removeTask(id));
+            setCurrentTask(null);
+            setRemoveTaskConfirmationPopupOpened(false);
+          }}
+          onCancel={() => {
+            setCurrentTask(null);
+            setRemoveTaskConfirmationPopupOpened(false);
+          }}
+        />
+      )}
     </div>
   );
 };
