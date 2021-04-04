@@ -1,4 +1,4 @@
-import { Task } from '../../../../store/state/task/types/Task';
+import { Task } from '../../../../../store/state/task/types/Task';
 
 export type Props = {
   opened: boolean;

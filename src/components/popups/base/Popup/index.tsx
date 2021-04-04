@@ -10,7 +10,7 @@ export const Popup: React.FC<Props> = (props) => {
     <ReactJsPopup open={props.opened} modal closeOnDocumentClick={false} closeOnEscape={false} {...{ overlayStyle: popupOverlayStyle }}>
       <div className={styles['popup-content']}>
         {props.title && <div className={styles['popup-content__header']}>{props.title}</div>}
-        {props.children}
+        <div className={styles['popup-content__body']}>{props.children}</div>
       </div>
     </ReactJsPopup>
   );

@@ -12,13 +12,18 @@
     "TASK_LIST_REMOVE_ALL_TASKS_BUTTON_TITLE": "Удалить все задачи",
     "TASK_LIST_REMOVE_ALL_COMPLETED_TASKS_BUTTON_TEXT": "Удалить завершённые",
     "TASK_LIST_REMOVE_ALL_COMPLETED_TASKS_BUTTON_TITLE": "Удалить все завершённые задачи",
-    "TASK_LIST_REMOVE_TASK_CONFIRMATION_POPUP_TEXT": "Удалить задачу?",
-    "TASK_LIST_REMOVE_ALL_TASKS_CONFIRMATION_POPUP_TEXT": "Удалить все задачи?",
-    "TASK_LIST_REMOVE_ALL_COMPLETED_TASKS_CONFIRMATION_POPUP_TEXT": "Удалить все завершённые задачи?",
     "TASK_LIST_TOTAL_COUNTER": "Всего",
     "TASK_LIST_NO_TASKS": "Пока нет задач",
     "TASK_FILTER_SWITCHER_ALL": "Все",
     "TASK_FILTER_SWITCHER_ACTIVE": "Активные",
-    "TASK_FILTER_SWITCHER_COMPLETED": "Завершённые"
+    "TASK_FILTER_SWITCHER_COMPLETED": "Завершённые",
+    "POPUPS_CONFIRMATION_POPUP_CANCEL_BUTTON_TEXT": "Отмена",
+    "POPUPS_CONFIRMATION_POPUP_CANCEL_BUTTON_TITLE": "Отмена",
+    "POPUPS_REMOVE_TASK_CONFIRMATION_POPUP_TEXT": "Удалить задачу?",
+    "POPUPS_REMOVE_TASK_CONFIRMATION_POPUP_TITLE": "Подтвердите удаление задачи",
+    "POPUPS_REMOVE_ALL_TASKS_CONFIRMATION_POPUP_TEXT": "Удалить все задачи?",
+    "POPUPS_REMOVE_ALL_TASKS_CONFIRMATION_POPUP_TITLE": "Подтвердите удаление всех задач",
+    "POPUPS_REMOVE_ALL_COMPLETED_TASKS_CONFIRMATION_POPUP_TEXT": "Удалить все завершённые задачи?",
+    "POPUPS_REMOVE_ALL_COMPLETED_TASKS_CONFIRMATION_POPUP_TITLE": "Подтвердите удаление всех завершённых задач"
   }
 }

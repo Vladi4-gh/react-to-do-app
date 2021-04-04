@@ -1,4 +1,4 @@
-@import '../../../styles/main';
+@import '../../../../styles/main';
 
 .popup-content {
   background: $color-peaceful-white;
@@ -7,5 +7,10 @@
 
   &__header {
     background: $color-light-gray;
+    padding: 1rem;
+  }
+
+  &__body {
+    padding: 1rem;
   }
 }

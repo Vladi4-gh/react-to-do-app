@@ -12,12 +12,18 @@ import { addTask, editTask, removeAllCompletedTasks, removeAllTasks, removeTask,
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarCheck, faEdit, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { CheckButton } from '../buttons/CheckButton';
-import { RemoveTaskConfirmationPopup } from '../popups/RemoveTaskConfirmationPopup';
+import { RemoveTaskConfirmationPopup } from '../popups/task/RemoveTaskConfirmationPopup';
+import { RemoveAllTasksConfirmationPopup } from '../popups/task/RemoveAllTasksConfirmationPopup';
+import { RemoveAllCompletedTasksConfirmationPopup } from '../popups/task/RemoveAllCompletedTasksConfirmationPopup';
 import styles from './styles.scss';
 
 export const TaskList: React.FC = () => {
   const [currentTask, setCurrentTask] = useState<Task | null>(null);
+  // const [addTaskPopupOpened, setAddTaskPopupOpened] = useState(false);
+  // const [editTaskPopupOpened, setEditTaskPopupOpened] = useState(false);
   const [removeTaskConfirmationPopupOpened, setRemoveTaskConfirmationPopupOpened] = useState(false);
+  const [removeAllTasksConfirmationPopupOpened, setRemoveAllTasksConfirmationPopupOpened] = useState(false);
+  const [removeAllCompletedTasksConfirmationPopupOpened, setRemoveAllCompletedTasksConfirmationPopupOpened] = useState(false);
   const state = useTypedSelector((state) => state);
   const { filteredTasks, getLocalizedText } = useGetters(state);
   const dispatch = useDispatch();
@@ -94,9 +100,7 @@ export const TaskList: React.FC = () => {
         <Button
           className={styles['remove-all-tasks-button']}
           title={getLocalizedText(LocalizationDataKey.TASK_LIST_REMOVE_ALL_TASKS_BUTTON_TITLE)}
-          onClick={() =>
-            confirm(getLocalizedText(LocalizationDataKey.TASK_LIST_REMOVE_ALL_TASKS_CONFIRMATION_POPUP_TEXT)) ? dispatch(removeAllTasks()) : null
-          }
+          onClick={() => setRemoveAllTasksConfirmationPopupOpened(true)}
         >
           <FontAwesomeIcon icon={faTrash} />
           <span className={styles['text']}>
@@ -123,11 +127,7 @@ export const TaskList: React.FC = () => {
         <Button
           className={styles['remove-all-completed-tasks-button']}
           title={getLocalizedText(LocalizationDataKey.TASK_LIST_REMOVE_ALL_COMPLETED_TASKS_BUTTON_TITLE)}
-          onClick={() =>
-            confirm(getLocalizedText(LocalizationDataKey.TASK_LIST_REMOVE_ALL_COMPLETED_TASKS_CONFIRMATION_POPUP_TEXT))
-              ? dispatch(removeAllCompletedTasks())
-              : null
-          }
+          onClick={() => setRemoveAllCompletedTasksConfirmationPopupOpened(true)}
         >
           <FontAwesomeIcon icon={faCalendarCheck} />
           <span className={styles['text']}>
@@ -150,6 +150,26 @@ export const TaskList: React.FC = () => {
           }}
         />
       )}
+      <RemoveAllTasksConfirmationPopup
+        opened={removeAllTasksConfirmationPopupOpened}
+        onConfirm={() => {
+          dispatch(removeAllTasks());
+          setRemoveAllTasksConfirmationPopupOpened(false);
+        }}
+        onCancel={() => {
+          setRemoveAllTasksConfirmationPopupOpened(false);
+        }}
+      />
+      <RemoveAllCompletedTasksConfirmationPopup
+        opened={removeAllCompletedTasksConfirmationPopupOpened}
+        onConfirm={() => {
+          dispatch(removeAllCompletedTasks());
+          setRemoveAllCompletedTasksConfirmationPopupOpened(false);
+        }}
+        onCancel={() => {
+          setRemoveAllCompletedTasksConfirmationPopupOpened(false);
+        }}
+      />
     </div>
   );
 };
