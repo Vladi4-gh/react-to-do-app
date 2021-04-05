@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useGetters } from '../../store/getters/getters';
-import { v4 } from 'uuid';
 import { LocalizedText } from '../LocalizedText';
 import { LocalizationDataKey } from '../../store/static/localization/types/LocalizationDataKey';
 import { Button } from '../buttons/Button';
@@ -12,6 +11,8 @@ import { addTask, editTask, removeAllCompletedTasks, removeAllTasks, removeTask,
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarCheck, faEdit, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { CheckButton } from '../buttons/CheckButton';
+import { AddTaskPopup } from '../popups/task/AddTaskPopup';
+import { EditTaskPopup } from '../popups/task/EditTaskPopup';
 import { RemoveTaskConfirmationPopup } from '../popups/task/RemoveTaskConfirmationPopup';
 import { RemoveAllTasksConfirmationPopup } from '../popups/task/RemoveAllTasksConfirmationPopup';
 import { RemoveAllCompletedTasksConfirmationPopup } from '../popups/task/RemoveAllCompletedTasksConfirmationPopup';
@@ -19,8 +20,8 @@ import styles from './styles.scss';
 
 export const TaskList: React.FC = () => {
   const [currentTask, setCurrentTask] = useState<Task | null>(null);
-  // const [addTaskPopupOpened, setAddTaskPopupOpened] = useState(false);
-  // const [editTaskPopupOpened, setEditTaskPopupOpened] = useState(false);
+  const [addTaskPopupOpened, setAddTaskPopupOpened] = useState(false);
+  const [editTaskPopupOpened, setEditTaskPopupOpened] = useState(false);
   const [removeTaskConfirmationPopupOpened, setRemoveTaskConfirmationPopupOpened] = useState(false);
   const [removeAllTasksConfirmationPopupOpened, setRemoveAllTasksConfirmationPopupOpened] = useState(false);
   const [removeAllCompletedTasksConfirmationPopupOpened, setRemoveAllCompletedTasksConfirmationPopupOpened] = useState(false);
@@ -48,16 +49,10 @@ export const TaskList: React.FC = () => {
         <Button
           className={styles['edit-task-button']}
           title={getLocalizedText(LocalizationDataKey.TASK_LIST_EDIT_TASK_BUTTON_TITLE)}
-          onClick={() =>
-            dispatch(
-              editTask({
-                id: filteredTask.id,
-                title: v4(),
-                description: v4(),
-                completed: filteredTask.completed
-              })
-            )
-          }
+          onClick={() => {
+            setCurrentTask(filteredTask);
+            setEditTaskPopupOpened(true);
+          }}
         >
           <FontAwesomeIcon icon={faEdit} />
         </Button>
@@ -81,16 +76,7 @@ export const TaskList: React.FC = () => {
         <Button
           className={styles['add-task-button']}
           title={getLocalizedText(LocalizationDataKey.TASK_LIST_ADD_TASK_BUTTON_TITLE)}
-          onClick={() =>
-            dispatch(
-              addTask({
-                id: v4(),
-                title: v4(),
-                description: v4(),
-                completed: false
-              })
-            )
-          }
+          onClick={() => setAddTaskPopupOpened(true)}
         >
           <FontAwesomeIcon icon={faPlus} />
           <span className={styles['text']}>
@@ -135,6 +121,29 @@ export const TaskList: React.FC = () => {
           </span>
         </Button>
       </div>
+      <AddTaskPopup
+        opened={addTaskPopupOpened}
+        onSave={(task) => {
+          dispatch(addTask(task));
+          setAddTaskPopupOpened(false);
+        }}
+        onCancel={() => setAddTaskPopupOpened(false)}
+      />
+      {currentTask && (
+        <EditTaskPopup
+          opened={editTaskPopupOpened}
+          task={currentTask}
+          onSave={(task) => {
+            dispatch(editTask(task));
+            setCurrentTask(null);
+            setEditTaskPopupOpened(false);
+          }}
+          onCancel={() => {
+            setCurrentTask(null);
+            setEditTaskPopupOpened(false);
+          }}
+        />
+      )}
       {currentTask && (
         <RemoveTaskConfirmationPopup
           opened={removeTaskConfirmationPopupOpened}
@@ -156,9 +165,7 @@ export const TaskList: React.FC = () => {
           dispatch(removeAllTasks());
           setRemoveAllTasksConfirmationPopupOpened(false);
         }}
-        onCancel={() => {
-          setRemoveAllTasksConfirmationPopupOpened(false);
-        }}
+        onCancel={() => setRemoveAllTasksConfirmationPopupOpened(false)}
       />
       <RemoveAllCompletedTasksConfirmationPopup
         opened={removeAllCompletedTasksConfirmationPopupOpened}
@@ -166,9 +173,7 @@ export const TaskList: React.FC = () => {
           dispatch(removeAllCompletedTasks());
           setRemoveAllCompletedTasksConfirmationPopupOpened(false);
         }}
-        onCancel={() => {
-          setRemoveAllCompletedTasksConfirmationPopupOpened(false);
-        }}
+        onCancel={() => setRemoveAllCompletedTasksConfirmationPopupOpened(false)}
       />
     </div>
   );

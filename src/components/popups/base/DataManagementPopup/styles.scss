@@ -1,9 +1,5 @@
 @import '../../../../styles/main';
 
-.text {
-  text-align: center;
-}
-
 .buttons-container {
   display: flex;
   justify-content: center;
@@ -20,7 +16,7 @@
     }
   }
 
-  .confirm-button {
+  .save-button {
     background: $color-shining-azure;
     color: $color-peaceful-white;
   }
