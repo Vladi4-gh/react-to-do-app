@@ -1,3 +1,0 @@
-export enum AppActionType {
-  SET_LOCALIZATION_LANGUAGE = 'SET_LOCALIZATION_LANGUAGE'
-}
